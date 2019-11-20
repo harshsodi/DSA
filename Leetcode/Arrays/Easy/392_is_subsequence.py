@@ -9,18 +9,16 @@ class Solution(object):
         :rtype: bool
         """
         
-        if s == "":
-            return True
+        st = []
+        for i in s:
+            st.append(i)
         
-        spointer = 0
-        l = len(s)
-
+        # print st
+        
         for i in t:
-            
-            if spointer >= l:
-                return True
-            
-            if i == s[spointer]:
-                spointer += 1
-                
-        return spointer == l
+            if len(st) and st[0] == i:
+                st.pop(0)
+        
+        if len(st):
+            return False
+        return True
